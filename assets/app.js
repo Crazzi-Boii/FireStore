@@ -16,7 +16,6 @@ submit4.addEventListener("click", function(){
     }).catch(function(error){
         console.log("got error ", error);
     });
-    hello();
 });
 
 load.addEventListener("click", function() {
