@@ -1,11 +1,17 @@
-const docRef1 = firestore.doc("loop/num");
+const docRef1 = firestore.doc("-/-");
 
-docRef1.get().then(function(doc) {
-    if (doc && doc.exists) {
-        const mydata1 = doc.data();
-        const a = mydata1.vari;
-        console.log(parseInt(a));
-    } 
-}).catch(function(error){
-    console.log("got error ", error);
-});
+function cal(){
+    docRef1.get().then(function(doc) {
+        if (doc && doc.exists) {
+            const mydata1 = doc.data();
+            const a = parseInt(mydata1.i)+1;
+            docRef1.set({
+                i: a
+            }).catch(function(error){
+                console.log("got error ", error);
+            });
+        } 
+    }).catch(function(error){
+        console.log("got error ", error);
+    });
+}
